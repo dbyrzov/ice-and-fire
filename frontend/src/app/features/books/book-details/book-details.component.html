@@ -1,0 +1,28 @@
+@if (error()) {
+<div class="error-message">Something went wrong while fetching the book.</div>
+} @else if (book()) {
+<div class="space"></div>
+
+<div class="book-detail-container">
+  <h2 class="book-title">{{ book()!.name }}</h2>
+
+  <div class="book-info">
+    <p><strong>Authors:</strong> {{ book()!.authors.join(", ") }}</p>
+    <p><strong>Publisher:</strong> {{ book()!.publisher || "Unknown" }}</p>
+    <p><strong>Released:</strong> {{ book()!.released | date }}</p>
+    <p><strong>Pages:</strong> {{ book()!.numberOfPages }}</p>
+    <p><strong>ISBN:</strong> {{ book()!.isbn }}</p>
+    <p><strong>Country:</strong> {{ book()!.country }}</p>
+  </div>
+
+  <div *ngIf="book()!.characters.length > 0" class="characters-list">
+    <h3>Characters</h3>
+    <ul>
+      <li *ngFor="let char of book()!.characters">{{ char }}</li>
+    </ul>
+  </div>
+</div>
+<div class="space"></div>
+} @else {
+<div class="loading-message">Loading book details...</div>
+}

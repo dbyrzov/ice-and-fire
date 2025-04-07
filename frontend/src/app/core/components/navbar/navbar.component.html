@@ -1,0 +1,41 @@
+<nav class="navbar-container">
+  <img
+    src="../../../assets/images/logo.png"
+    alt=""
+    width="50px"
+    height="50px"
+    class="navbar-logo"
+  />
+
+  <div class="navbar-right-content">
+    @if (user$ | async) {
+    <img
+      src="../../../assets/images/profile-icon.png"
+      alt=""
+      width="40px"
+      height="40px"
+      class="profile-logo"
+    />
+    }
+
+    <div class="mobile-menu-container">
+      <div [cdkMenuTriggerFor]="menu" class="nav-menu-button hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <ng-template #menu>
+        <div class="dropdown-menu" cdkMenu>
+          <ul>
+            @for (item of menuList; track $index) {
+            <li [routerLink]="item.link" cdkMenuItem>
+              <a>{{ item.label }}</a>
+            </li>
+            }
+          </ul>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</nav>

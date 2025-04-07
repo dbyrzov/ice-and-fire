@@ -1,0 +1,11 @@
+<div class="book-card">
+  <h3>{{ book().name }}</h3>
+  <p><strong>Authors:</strong> {{ book().authors.join(", ") }}</p>
+  <p><strong>Publisher:</strong> {{ book().publisher || "Unknown" }}</p>
+  <p><strong>Release Date:</strong> {{ book().released | date }}</p>
+  <app-favorite-icon
+    [isFavorite]="book().favorite"
+    class="books-favorite"
+    (toggleEvent)="updateBook($event)"
+  ></app-favorite-icon>
+</div>

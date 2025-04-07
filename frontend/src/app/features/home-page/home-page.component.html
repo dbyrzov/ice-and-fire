@@ -1,0 +1,77 @@
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Chronicles of Westeros</h1>
+  <p>Explore the lore of Westeros and Essos</p>
+  <button (click)="gotoExplore()">Explore the Realm</button>
+</section>
+
+<!-- Books -->
+<section>
+  <h2>
+    📚 Books
+    <span class="more-link" (click)="gotoBooks()">View all</span>
+  </h2>
+  <div class="card-container">
+    @if (books()) { @for (book of books(); track $index) {
+
+    <div class="card" (click)="gotoBookDetails(book.url)">
+      <h3>{{ book.name }}</h3>
+      <p>By {{ book.authors.join(", ") }}</p>
+      <p>Pages: {{ book.numberOfPages }}</p>
+    </div>
+    }
+
+    <!-- <div class="more-link" (click)="gotoBooks()">Go to books</div> -->
+    } @else {
+    <app-card-skeleton></app-card-skeleton>
+    <app-card-skeleton></app-card-skeleton>
+    <app-card-skeleton></app-card-skeleton>
+    }
+  </div>
+</section>
+
+<!-- Houses -->
+<section>
+  <h2>
+    🏰 Great Houses
+    <span class="more-link" (click)="gotoHouses()">View all</span>
+  </h2>
+  <div class="card-container">
+    @if (houses()) { @for (house of houses(); track $index) {
+
+    <div class="card" (click)="gotoHouseDetails(house.url)">
+      <h3>{{ house.name }}</h3>
+      <p>Region: {{ house.region }}</p>
+      <p>Words: {{ house.words || "Unknown" }}</p>
+    </div>
+    } } @else {
+    <app-card-skeleton></app-card-skeleton>
+    <app-card-skeleton></app-card-skeleton>
+    <app-card-skeleton></app-card-skeleton>
+
+    }
+  </div>
+</section>
+
+<!-- Characters -->
+<section>
+  <h2>
+    🧝‍♂️ Characters
+    <span class="more-link" (click)="gotoCharacters()">View all</span>
+  </h2>
+  <div class="card-container">
+    @if (characters()) { @for (char of characters(); track $index) {
+
+    <div class="card" (click)="gotoCharacterDetails(char.url)">
+      <h3>{{ char.name }}</h3>
+      <p *ngIf="char.culture">Culture: {{ char.culture }}</p>
+      <p *ngIf="char.gender">Gender: {{ char.gender }}</p>
+    </div>
+    } } @else {
+    <app-card-skeleton></app-card-skeleton>
+    <app-card-skeleton></app-card-skeleton>
+    <app-card-skeleton></app-card-skeleton>
+
+    }
+  </div>
+</section>

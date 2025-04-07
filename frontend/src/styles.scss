@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: Georgia, serif;
+}
+
+:root {
+  --breakpoint-xs: 576px;
+  --breakpoint-s: 768px;
+  --breakpoint-m: 1024px;
+  --breakpoint-l: 1280px;
+  --breakpoint-xl: 1920px;
+}

@@ -1,0 +1,68 @@
+:host {
+  display: flex;
+}
+
+/* Common shimmer style */
+.skeleton {
+  background: #5b5b5b;
+  border-radius: 4px;
+}
+
+/* SHIMMER base: applied only to desired elements */
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+/* Variants that shimmer */
+.skeleton-title {
+  height: 20px;
+  width: 60%;
+  margin-bottom: 12px;
+}
+
+.skeleton-text {
+  height: 16px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.skeleton-small {
+  height: 12px;
+  width: 80%;
+}
+
+/* Shapes that do NOT shimmer */
+.skeleton-card {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #353333;
+  padding: 16px;
+  border-radius: 8px;
+  min-width: 300px;
+  min-height: 120px;
+  box-shadow: 0 0 8px #000;
+}

@@ -1,0 +1,12 @@
+:host {
+  min-height: calc(100vh - 5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .world-map {
+    width: 80%;
+    height: auto;
+    padding: 2rem 0;
+  }
+}

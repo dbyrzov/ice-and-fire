@@ -1,0 +1,18 @@
+<div class="books-list">
+  <h1>Books List</h1>
+
+  <app-search-input (searchChanged)="onSearchChange($event)"></app-search-input>
+
+  @if (loading$ | async) {
+  <div class="loading-message message">Loading books...</div>
+  } @else { @if ((error$ | async); as error) {
+  <div class="error-message message">{{ error }}</div>
+  } @else { @if ((books$ | async)?.length === 0) {
+  <div class="no-books-message message">No books available.</div>
+  } @else { @for (book of books$ | async; track $index) {
+  <app-books-list-card
+    [book]="book"
+    (updateEvent)="updateBook($event)"
+  ></app-books-list-card>
+  } } } }
+</div>
