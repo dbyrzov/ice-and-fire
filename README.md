@@ -13,6 +13,8 @@ The project contains two main folders:
 
 - `npm run start`: It will install both frontend and backend dependencies and start backend server on `localhost:3000` and frontend server on `localhost:4200`
 
+- Use `test` for both username and password as currently the system does not support user creation.
+
 ### Prerequisites
 
 Before you begin, make sure you have the following installed:
