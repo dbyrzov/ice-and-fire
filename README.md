@@ -11,7 +11,7 @@ The project contains two main folders:
 
 ## Getting Started
 
-- `npm run start`: It will both frontend and backend dependencies and start backend server on `localhost:3000` and fronend server on `localhost:4200`
+- `npm run start`: It will install both frontend and backend dependencies and start backend server on `localhost:3000` and frontend server on `localhost:4200`
 
 ### Prerequisites
 
